@@ -1,0 +1,6 @@
+- name: build the ssp yml
+  template:
+    src: ssp.j2
+    dest: /root/ssp.yml
+  tags:
+    - ssp

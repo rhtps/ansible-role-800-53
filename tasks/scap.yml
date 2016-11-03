@@ -71,8 +71,9 @@
     - scap
 
 - name: retrieve the xml report
-  set_fact:
-    scap_xml: "{{ lookup('file', scap_xml_report.files.0.path)}}"
+  slurp:
+    src: "{{ scap_xml_report.files.0.path }}"
+  register: scap_xml
 
 - debug: var=scap_xml
 
