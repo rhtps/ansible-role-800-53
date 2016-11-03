@@ -496,13 +496,17 @@
     - int-high
 
 - name: Find User Rsh Trust Files
-  shell: "find /home -name '.rhosts' -print"
+  find:
+      paths: "/home"
+      pattern: ".rhosts"
+  # shell: "find /home -name '.rhosts' -print"
   register: user_rhosts
   always_run: True
   changed_when: False
 
 - name: AC-17(8) Remove Rsh Trust Files - ~/.rhosts
-  with_items: "{{ user_rhosts.stdout_lines }}"
+  # with_items: "{{ user_rhosts.stdout_lines }}"
+  with_items: "{{ user_rhosts.path }}"
   file:
     dest: "{{ item }}"
     state: absent
@@ -626,6 +630,7 @@
     state: started
     enabled: yes
 
+# TODO: rewrite with find module once xdev support is added to type
 - name: Find commands with setuid/setgid bit set on /
   shell: find / -xdev -type f -perm -4000 -o -type f -perm -2000 2>/dev/null
   always_run: True
