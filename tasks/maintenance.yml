@@ -51,7 +51,7 @@
 #   debug: var=yum_repos
 
 - name: MA-1(b) Ensure gpgcheck Enabled For All Yum Package Repositories
-  with_items: "{{ yum_repos }}"
+  with_items: "{{ yum_repos.files }}"
   replace:
     dest: "{{ item.path }}"
     regexp: 'gpgcheck=0'
