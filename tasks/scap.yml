@@ -44,20 +44,43 @@
   tags:
     - scap
 
-- name: Determine Most Recent Report
-  shell: ls -t /tmp/scap_reports/*.html | head -n 1
-  args:
-    executable: /bin/bash
+- name: Determine Most Recent HTML Report
+  find:
+    paths: "/tmp/scap_reports"
+    pattern: "*.html"
+    age: "10m"
+  # shell: ls -t /tmp/scap_reports/*.html | head -n 1
+  # args:
+  #   executable: /bin/bash
   when: run_scap
   register: scap_html_report
   tags:
     - scap
 
-- name: Fetch the SCAP Report
-  fetch:
-    src: "{{ scap_html_report.stdout }}"
-    dest: "{{ scap_reports_dir }}/{{ ansible_hostname }}/{{ scap_html_report.stdout }}"
-    flat: yes
+- name: Determine Most Recent XML Report
+  find:
+    paths: "/tmp/scap_reports"
+    pattern: "*.xml"
+    age: "10m"
+  # shell: ls -t /tmp/scap_reports/*.html | head -n 1
+  # args:
+  #   executable: /bin/bash
   when: run_scap
+  register: scap_xml_report
   tags:
     - scap
+
+- name: retrieve the xml report
+  set_fact:
+    scap_xml: "{{ lookup('file', scap_xml_report.files.0.path)}}"
+
+- debug: var=scap_xml
+
+# - name: Fetch the SCAP Report
+#   fetch:
+#     src: "{{ scap_html_report.stdout }}"
+#     dest: "{{ scap_reports_dir }}/{{ ansible_hostname }}/{{ scap_html_report.stdout }}"
+#     flat: yes
+#   when: run_scap
+#   tags:
+#     - scap

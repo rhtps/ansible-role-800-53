@@ -1,0 +1,71 @@
+---
+name: {{ ssp_project_name }}
+uniqueID: <MB number – see https://docs.google.com/spreadsheets/d/1v4QfXGaJVy9-CZ0n6cFLHGGs_5TL1l8uCh6ZyNYjMDk/edit#gid=2047916505>
+version: 0.1
+phase: discovery
+information-types:
+- "D.24 Military Operations"
+
+confidentiality: {{ ssp_confidentiality_level }}
+integrity: {{ ssp_integrity_level }}
+availability: {{ ssp_availability_level }}
+security-baseline: {{ ssp_security_baseline_level }}
+
+system-type: {{ ssp_system_type }}
+level-of-identity-assurance: {{ ssp_identity_assurance_level }}
+staff:
+  authorizing-official:
+    name: {{ ssp_ao_name }}
+    title: {{ ssp_ao_title }}
+    org: {{ ssp_ao_org }}
+    unit: {{ ssp_ao_unit }}
+    email: {{ ssp_ao_email }}
+  system-owner:
+    name: {{ ssp_system_owner_name }}
+    title: {{ ssp_system_owner_title }}
+    org: {{ ssp_system_owner_org }}
+    unit: {{ ssp_system_owner_unit }}
+    email: {{ ssp_system_owner_email }}
+  system-management:
+    name: {{ ssp_system_manager_name }}
+    title: {{ ssp_system_manager_title }}
+    org: {{ ssp_system_manager_org }}
+    unit: {{ ssp_system_manager_unit }}
+    email: {{ ssp_system_manager_email }}
+  system-security-officer:
+    name: {{ ssp_sso_name }}
+    title: {{ ssp_sso_title }}
+    org: {{ ssp_sso_org }}
+    unit: {{ ssp_sso_unit }}
+    email: {{ ssp_sso_email }}
+  technical-lead:
+    name: {{ ssp_tech_lead_name }}
+    title: {{ ssp_tech_lead_title }}
+    org: {{ ssp_tech_lead_org }}
+    unit: {{ ssp_tech_lead_unit }}
+    email: {{ ssp_tech_lead_email }}
+leveraged-authorizations:
+{% for ssp_authorizations in ssp_leveraged_autorizations %}
+- {{ ssp_authorization }}
+{% endfor %}
+purpose: {{ ssp_link_to_readme }}
+components:
+{% for ssp_component in ssp_components %}
+- {{ ssp_component }}
+{% endfor %}
+
+# these will be the same unless your architecture is especially complex
+system-diagram: {{ ssp_system_diagram_link }}
+network-diagram: {{ ssp_network_diagram_link }}
+
+environments:
+{% for ssp_environment in ssp_environments %}
+- {{ ssp_environment }}
+{% endfor %}
+user-types:
+  developer:
+    functions:
+    - deployment
+    - engineering
+controls:
+- {{ ssp_link_to_controls }}
