@@ -1,6 +1,6 @@
 ---
 - name: Check for supported version
-  fail: 
+  fail:
     msg: "Please use a supported OS, detected: {{ ansible_distribution }}"
   when: ansible_distribution != "RedHat"
 - include: access_control.yml
@@ -15,3 +15,4 @@
 - include: system_and_services_acquisition.yml
 - include: media_protection.yml
 - include: scap.yml
+- include: ssp.yml

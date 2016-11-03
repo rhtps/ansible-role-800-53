@@ -4,3 +4,10 @@
     dest: /root/ssp.yml
   tags:
     - ssp
+
+- name: grab the ssl yml
+  slurp:
+    src: /root/ssp.yml
+  register: ssp_yml
+
+- debug: var=ssp_yml

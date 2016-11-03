@@ -75,8 +75,6 @@
     src: "{{ scap_xml_report.files.0.path }}"
   register: scap_xml
 
-- debug: var=scap_xml
-
 # - name: Fetch the SCAP Report
 #   fetch:
 #     src: "{{ scap_html_report.stdout }}"
