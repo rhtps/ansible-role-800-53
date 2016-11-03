@@ -29,25 +29,31 @@
     - avail-medium
     - avail-high
 
-- name: Find All Yum Repos - EL 6
-  shell: "/bin/ls /etc/yum.repos.d/*.repo"
-  register: yum_repos
-  changed_when: False
-  when: ansible_distribution_major_version == "6"
+# - name: Find All Yum Repos - EL 6
+#   shell: "/bin/ls /etc/yum.repos.d/*.repo"
+#   register: yum_repos
+#   changed_when: False
+#   when: ansible_distribution_major_version == "6"
+#
+# - name: Find All Yum Repos - EL 7
+#   shell: "/usr/bin/ls /etc/yum.repos.d/*.repo"
+#   register: yum_repos
+#   changed_when: False
+#   when: ansible_distribution_major_version == "7"
 
-- name: Find All Yum Repos - EL 7
-  shell: "/usr/bin/ls /etc/yum.repos.d/*.repo"
+- name: Find all yum repos
+  find:
+    paths: "/etc/yum.repos.d"
+    pattern: "*.repo"
   register: yum_repos
-  changed_when: False
-  when: ansible_distribution_major_version == "7"
 
-- name: Show YUM repos
-  debug: var=yum_repos
+# - name: Show YUM repos
+#   debug: var=yum_repos
 
 - name: MA-1(b) Ensure gpgcheck Enabled For All Yum Package Repositories
-  with_items: "{{ yum_repos.stdout_lines }}"
+  with_items: "{{ yum_repos }}"
   replace:
-    dest: "{{ item }}"
+    dest: "{{ item.path }}"
     regexp: 'gpgcheck=0'
     replace: 'gpgcheck=1'
   tags:
