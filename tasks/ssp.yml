@@ -10,5 +10,6 @@
       register: ssp_yml
 
     - debug: var=ssp_yml
+  when: generate_ssp is True
   tags:
     - ssp
