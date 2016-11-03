@@ -24,8 +24,8 @@
 
 - name: IA-2(1) Ensure that System Accounts Do Not Run a Shell Upon Login
   with_together:
-    - "{{ system_users.stdout_lines }}"
-    - "{{ system_uids.stdout_lines }}"
+    - "{{ system_users }}"
+    - "{{ system_uids }}"
   user:
     name: "{{ item.0 }}"
     shell: /sbin/nologin
@@ -40,8 +40,8 @@
 
 - name: IA-2(1) Verify Only Root Has UID 0
   with_together:
-    - "{{ system_users.stdout_lines }}"
-    - "{{ system_uids.stdout_lines }}"
+    - "{{ system_users }}"
+    - "{{ system_uids }}"
   user:
     name: "{{ item.0 }}"
     state: absent
@@ -488,7 +488,7 @@
     - int-high
 
 - name: IA-2(1) Require Authentication for Single User Mode
-  lineinfile: 
+  lineinfile:
     dest: /etc/sysconfig/init
     regexp: ".*SINGLE.*"
     line: "SINGLE=/sbin/sulogin"
@@ -518,7 +518,7 @@
     state: absent
   when: result.rc == 0
   ignore_errors: True
-  tags: 
+  tags:
     - CAT-I
     - conf-low
     - conf-medium
