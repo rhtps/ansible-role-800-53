@@ -506,9 +506,9 @@
 
 - name: AC-17(8) Remove Rsh Trust Files - ~/.rhosts
   # with_items: "{{ user_rhosts.stdout_lines }}"
-  with_items: "{{ user_rhosts.path }}"
+  with_items: "{{ user_rhosts.files }}"
   file:
-    dest: "{{ item }}"
+    dest: "{{ item.path }}"
     state: absent
   tags:
     - conf-low
