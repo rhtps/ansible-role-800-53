@@ -1,13 +1,14 @@
-- name: build the ssp yml
-  template:
-    src: ssp.j2
-    dest: /root/ssp.yml
+- block:
+    - name: build the ssp yml
+      template:
+        src: ssp.j2
+        dest: /root/ssp.yml
+
+    - name: grab the ssl yml
+      slurp:
+        src: /root/ssp.yml
+      register: ssp_yml
+
+    - debug: var=ssp_yml
   tags:
     - ssp
-
-- name: grab the ssl yml
-  slurp:
-    src: /root/ssp.yml
-  register: ssp_yml
-
-- debug: var=ssp_yml

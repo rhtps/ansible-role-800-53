@@ -82,5 +82,50 @@ scap_profile:
 
 scap_reports_dir: /tmp
 
+# ssp variables
+generate_ssp: False
 
-
+ssp_project_name: ACMEPROJECT
+ssp_confidentiality_level: moderate
+ssp_integrity_level: moderate
+ssp_availability_level: moderate
+ssp_security_baseline_level: moderate
+ssp_system_type: general support
+ssp_identity_assurance_level: 0
+ssp_ao_name: Alice Smith
+ssp_ao_title: AO
+ssp_ao_org: Agency of Awesomeness
+ssp_ao_unit: Office of the CISO
+ssp_ao_email: alice.smith@example.com
+ssp_system_owner_name: Bob Smith
+ssp_system_owner_title: Acme Project PM
+ssp_system_owner_org: Agency of Awesomeness
+ssp_system_owner_unit: Technology Directorate
+ssp_system_owner_email: bob.smith@email.com
+ssp_system_manager_name: Charlie Smith
+ssp_system_manager_title: Engineering Lead
+ssp_system_manager_org: Agency of Awesomeness
+ssp_system_manager_unit: Technology Directorate
+ssp_system_manager_email: charlie.smith@example.com
+ssp_sso_name: Dave Smith
+ssp_sso_title: System Security Officer
+ssp_sso_org: Agency of Awesomeness
+ssp_sso_unit: Security Directorate
+ssp_sso_email: dave.smith@example.com
+ssp_tech_lead_name: Eve Smith
+ssp_tech_lead_title: Tech Lead
+ssp_tech_lead_org: Agency of Awesomeness
+ssp_tech_lead_unit: Technology Directorate
+ssp_tech_lead_email: eve.smith@example.com
+ssp_leveraged_authorizations:
+  - Landlord SSP
+ssp_link_to_readme: http://example.com/acme_readme.md
+ssp_components:
+  - Agency of Awesomeness Dashboard
+  - GitLab
+ssp_system_diagram_link: http://example.com/acme_system_diagram.pdf
+ssp_network_diagram_link: http://example.com/acme_network_diagram.pdf
+ssp_environments:
+  - AWS EC2
+  - OpenShift Container Platform
+  - Red Hat Satellite Server
