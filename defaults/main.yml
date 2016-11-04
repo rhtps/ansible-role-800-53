@@ -83,7 +83,7 @@ scap_profile:
 scap_reports_dir: /tmp
 
 # ssp variables
-generate_ssp: False
+generate_ssp: false
 
 ssp_project_name: ACMEPROJECT
 ssp_confidentiality_level: moderate
