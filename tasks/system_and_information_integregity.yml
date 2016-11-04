@@ -38,7 +38,7 @@
 - name: SI-7 Ensure gpgcheck Enabled For All Yum Package Repositories
   with_items: "{{ yum_repos.files }}"
   replace:
-    dest: "{{ item }}"
+    dest: "{{ item.path }}"
     regexp: 'gpgcheck=0'
     replace: 'gpgcheck=1'
   tags:
