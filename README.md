@@ -59,7 +59,7 @@ Example Playbook
 ```yaml
 # file: scap.yaml
 ---
-- hosts: scap_hosts
+- hosts: 800_53_hosts
   become: yes
   vars:
     scap_reports_dir: ~/scap_reports
@@ -69,13 +69,13 @@ Example Playbook
 Example Inventory
 -----------------
 ```ini
-[scap_hosts]
+[800_53_hosts]
 172.16.78.159
 ```
 Example Run
 -----------
 ```bash
-ansible-playbook -u admin -i scap_inventory scap.yaml
+ansible-playbook -u admin -i 80053_hosts 80053.yaml
 ```
 
 License
