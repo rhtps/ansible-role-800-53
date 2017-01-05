@@ -11,6 +11,8 @@ All tasks are tagged with the applicable controls.  To see which tasks are relat
 $ ansible-playbook -i [inventory] --tags "AC" --list-tasks [playbook.yml]
 ```
 
+**NOTE:** This is the development branch.  This role in development may depend on modules not currently in the release of Ansible in EPEL.  If you need a stable release, please use the master.
+
 Requirements
 ------------
 
@@ -51,7 +53,7 @@ scap_reports_dir: /tmp
 Dependencies
 ------------
 
-ansible 2.2.0.0
+ansible 2.3.0.0
 
 Example Playbook
 ----------------
