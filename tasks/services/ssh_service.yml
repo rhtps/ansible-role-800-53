@@ -27,6 +27,8 @@
     - AC
     - AC-2
     - AC-2(5)
+    - 171-3.1.1
+    - 171-3.1.2
 
 - name: Set SSH Client Alive Count
   lineinfile:
@@ -38,6 +40,8 @@
     - AC
     - AC-2
     - AC-2(5)
+    - 171-3.1.1
+    - 171-3.1.2
 
 - name: Disable SSH Support for .rhosts Files
   lineinfile:
@@ -48,6 +52,8 @@
     - CAT-II
     - AC
     - AC-3
+    - 171-3.1.1
+    - 171-3.1.2
 
 - name: Disable Host-Based Authentication
   lineinfile:
@@ -58,7 +64,8 @@
     - CAT-II
     - AC-3
     - AC
-    - AC-3
+    - 171-3.1.1
+    - 171-3.1.2
 
 - name: Disable SSH Root Login
   lineinfile:
@@ -74,6 +81,8 @@
     - IA
     - IA-2
     - IA-2(1)
+    - 171-3.1.1
+    - 171-3.1.2
 
 - name: Disable SSH Access via Empty Passwords
   lineinfile:
@@ -84,6 +93,8 @@
     - CAT-II
     - AC
     - AC-3
+    - 171-3.1.1
+    - 171-3.1.2
 
 - name: Enable SSH Warning Banner
   lineinfile:
@@ -121,6 +132,8 @@
     - AC-3
     - AC-17
     - AC-17(2)
+    - 171-3.1.1
+    - 171-3.1.2
 
 - name: Disable GSSAPI Authentication
   lineinfile:
@@ -183,6 +196,8 @@
   - IA-7
   - SC
   - SC-13
+  - 171-3.1.1
+  - 171-3.1.2
 
 - name: Find SSH Keys
   find:

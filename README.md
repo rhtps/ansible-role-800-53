@@ -5,12 +5,6 @@ This role endeavors to apply relevant NIST 800-53 controls to an Enterprise Linu
 
 This is not a "scanner" per-se.  If you wish to assess the application of this role to your host, check out the SCAP Security Guide and Open SCAP projects.  Both of these will provide you tools with which you can scan your host.
 
-All tasks are tagged with the applicable controls.  To see which tasks are related to the "access control" category in the NIST 800-53 controls, execute the following.
-
-```bash
-$ ansible-playbook -i [inventory] --tags "AC" --list-tasks [playbook.yml]
-```
-
 Requirements
 ------------
 
@@ -76,6 +70,14 @@ Example Run
 -----------
 ```bash
 ansible-playbook -u admin -i 80053_inventory 80053.yaml
+```
+All tasks are tagged with the applicable controls.  To see which tasks are related to the "access control" category in the NIST 800-53 controls, execute the following.
+```bash
+$ ansible-playbook -i [inventory] --tags "AC" --list-tasks [playbook.yml]
+```
+To see which tasks would be run with a certain tag, execute something similar to the following.
+```bash
+ansible-playbook -u admin -i 80053_inventory 80053.yml --list-tasks --tags="171-3.1.1"
 ```
 
 License

@@ -16,6 +16,8 @@
     - MA-4
     - SC
     - SC-8
+    - 171-3.1.1
+    - 171-3.1.2
 
 - name: Install openswan or libreswan Package
   yum:
@@ -31,3 +33,5 @@
     - MA-4
     - SC
     - SC-8
+    - 171-3.1.1
+    - 171-3.1.2

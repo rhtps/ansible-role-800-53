@@ -43,6 +43,9 @@
     - int-high
     - AC
     - AC-2
+    - 171-3.1.1
+    - 171-3.1.2
+
 - name: Set Password Minimum Uppercase Characters
   lineinfile:
     dest: /etc/security/pwquality.conf
@@ -74,6 +77,8 @@
     - int-high
     - AC
     - AC-2
+    - 171-3.1.1
+    - 171-3.1.2
 
 - name: Set Password Minimum Lowercase Characters
   lineinfile:
@@ -111,6 +116,8 @@
     - IA-5(b)
     - IA-5(c)
     - IA-5(1)(b)
+    - 171-3.1.1
+    - 171-3.1.2
 
 - name: Set Password Strength Minimum Different Categories
   lineinfile:

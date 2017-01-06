@@ -275,6 +275,8 @@
     - int-high
     - AC
     - AC-3
+    - 171-3.1.1
+    - 171-3.1.2
 
 - name: Modify the System Login Banner - /etc/issue
   copy:
